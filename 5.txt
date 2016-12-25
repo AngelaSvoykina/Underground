@@ -1,0 +1,15 @@
+														
+	G	F	F		F	F	F	F	F	F	F	F	F	
+	F	F	F		F	F	F	F	F	F	F	F	F	
+	F	F	F		F	F	F	F	F	F	F	F	F	
+	F	F	F		F	F	F	F	F	F	F	F	F	
+	F	F	F		F	F	F	F	F	F	F	F	F	
+	F	F	F		F	F	F	F	F	F	F	F	F	
+	F	F	F		F	F	F	F	F	F	F	F	F	
+	F	F	F		F	F	F	F	F	F	F	F	F	
+	F	F	F		F	F	F	F	F	F	F	F	F	
+	F	F	F		F	F				F	F	F	F	
+	F	F	F		F	F		F	F	F	F	F	F	
+	F	F	F		F	F		F	F					
+	F	F	F	F	F	F		F	F	F	F	F	S	
+														
