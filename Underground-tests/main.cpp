@@ -13,7 +13,8 @@ int main(int argc, char** argv)
 	return RUN_ALL_TESTS();
 }
 
-TEST(Input, read_field)
+//	Тесты ввода информации:
+TEST(Input, read_field) //	тестируем ввод поля
 {
 	extern std::string read_field(std::istream& is);
 	
@@ -54,7 +55,7 @@ TEST(Input, read_field)
 	bad.clear(std::ios::badbit);
 	EXPECT_ANY_THROW(read_field(bad));
 }
-TEST(Input, read_line)
+TEST(Input, read_line) //	тестируем ввод строки
 {
 	extern std::vector<Cell> read_line(std::istream& is);
 	
@@ -83,7 +84,7 @@ TEST(Input, read_line)
 	std::istringstream bad2("hello world!");
 	EXPECT_ANY_THROW(read_line(bad2));
 }
-TEST(Input, read_map)
+TEST(Input, read_map) //	тестируем ввод файла целиком
 {
 	extern void read_map(std::istream&, std::vector<Cell>&, int& w, int& h);
 
@@ -110,7 +111,7 @@ TEST(Input, read_map)
 	std::vector<Cell> v4; int w4, h4;
 	EXPECT_ANY_THROW(read_map(ss4, v4, w4, h4));
 }
-TEST(Input, construct_map)
+TEST(Input, construct_map) //	тестируем конструирование объекта карты
 {
 	std::istringstream ss1("S\t\n");
 	EXPECT_ANY_THROW(Map::Map(ss1));
@@ -126,6 +127,7 @@ TEST(Input, construct_map)
 	EXPECT_TRUE(map3.index(map3.goal()) == 1);
 }
 
+//	Тесты класса Map:
 class MapTest : public ::testing::Test
 {
 public:
@@ -136,10 +138,11 @@ public:
 	Map m2 = Map(std::vector<Cell>({Cell::wall, Cell::start, Cell::space, Cell::end}), 2);
 	Map m3 = Map(std::vector<Cell>({Cell::start, Cell::space, Cell::space, Cell::space, Cell::space, Cell::end}), 3);
 };
-TEST_F(MapTest, BadVectorInit)
+TEST_F(MapTest, BadVectorInit) //	тестируем конструирование объекта Map с помощью вектора клеток
 {
 	EXPECT_ANY_THROW(Map(std::vector<Cell>({ Cell::wall, Cell::start, Cell::end }), 2));
 }
+
 TEST_F(MapTest, check_position)
 {
 	for (int i = 0; i < 3; ++i)
@@ -247,6 +250,8 @@ TEST_F(MapTest, set_path)
 		for (int i = 0; i < 4; ++i)
 			EXPECT_EQ(m2.get(i), w2[i]);
 }
+
+//	Тесты алгоритма А*:
 TEST(A_star, finding)
 {
 	std::istringstream ss1(R"(														
