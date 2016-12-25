@@ -4,6 +4,8 @@
 #include <string>
 #include "Map.h"
 #include "A_search.h"
+
+//	Из пути - вектора индексов, формируем выходные команды перемещения U, D, R, L
 std::vector<char> make_actions(const Map& map, const std::vector<MapIndex>& path)
 {
 	int w = map.width();
@@ -25,20 +27,23 @@ std::vector<char> make_actions(const Map& map, const std::vector<MapIndex>& path
 	return actions;
 }
 
+//	Ввод в выходной файл os выводных данных
 void process_input(std::ifstream& ifs, std::ostream& os)
 try
 {
 	Map undeground(ifs);
 	std::vector<MapIndex> path = a_star_search(undeground, undeground.start(), undeground.goal());
-	if (path[0] == -1) //��� ����
+
+	if (path[0] == -1) //	если нет пути
 	{
-		os << "���� �� ����������!\n\n";
+		os << "Пути не существует!\n\n";
 		return;
 	}
-	undeground.set_path(path);
-	os << "�����:\n" << undeground << std::endl;
 
-	os << "��������:\n";
+	undeground.set_path(path);
+	os << "Карта:\n" << undeground << std::endl;
+
+	os << "Действия:\n";
 	std::vector<char> actions = make_actions(undeground, path);
 	for (char ch : actions)
 	{
@@ -48,7 +53,7 @@ try
 }
 catch (std::exception& err)
 {
-	os << "������: " << err.what() << std::endl;
+	os << "Ошибка: " << err.what() << std::endl;
 }
 
 int main(int argc, char** argv)
@@ -66,10 +71,10 @@ int main(int argc, char** argv)
 		std::ifstream ifs(argv[i]);
 		if (!ifs)
 		{
-			os << "����: " << argv[i] << " �� �����������!\n\n";
+			os << "Файл: " << argv[i] << " не открывается!\n\n";
 			continue;
 		}
-		os << "����: " << argv[i] << std::endl;
+		os << "Файл: " << argv[i] << std::endl;
 		process_input(ifs, os);
 	}
 	return 0;
