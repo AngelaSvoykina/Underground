@@ -17,7 +17,9 @@ inline bool operator>(const PQElement& l, const PQElement& r)
 class PQindex {
 public:
 	bool empty() const { return pq.empty(); }
+	//	добавление в очередь
 	void put(int p, int priority) { pq.push({priority, p}); }
+	//	извлекаем самый приоритетный элемент из очереди
 	int get() { int p = pq.top().index; pq.pop(); return p; }
 private:
 	PriorityQueue pq;
