@@ -50,6 +50,7 @@ std::vector<MapIndex> Map::neighbors(MapIndex p) const
 	}
 	return result;
 }
+
 void init_index_dirs(std::array<MapIndex, 4>& index_DIRS, int w)
 {
 	for (size_t i = 0; i < 4; i++)
@@ -73,8 +74,9 @@ std::string read_field(std::istream& is)
 	if (is.eof())
 		return buffer;
 	else //	Фэйл или бад бит
-		throw std::runtime_error("read_field Îøèáêà!\n");
+		throw std::runtime_error("read_field Ошибка!\n");
 }
+
 std::vector<Cell> read_line(std::istream& is)
 {
 	std::vector<Cell> line;
@@ -90,7 +92,7 @@ std::vector<Cell> read_line(std::istream& is)
 		if (field.size() == 0)
 			line.push_back(Cell::wall);
 		else if (field.size() > 1)
-			throw std::runtime_error("read_line íåâåðíûé ñèìâîë!\n");
+			throw std::runtime_error("read_line неверный символ!\n");
 		else
 		{
 			char f = field[0];
@@ -106,14 +108,14 @@ std::vector<Cell> read_line(std::istream& is)
 				line.push_back(Cell::end);
 				break;
 			default:
-				throw std::runtime_error("read_line íåâåðíûé ñèìâîë!\n");
+				throw std::runtime_error("read_line неверный символ!\n");
 			}
 		}
 
 		char c = 0;
 		if (is.get(c) && c == '\t')
 			continue;
-		else //	'\n' или конец файла
+		else //'\n' или конец файла
 			return line;			
 	}
 }
@@ -125,7 +127,7 @@ void read_map(std::istream& is, std::vector<Cell>& data, int& w, int& h)
 	int lines = 0;
 
 	if (!is.good())
-		throw std::runtime_error("Ïîòîê ââîäà â íåõîðîøåì ñîñòîÿíèè!\n");
+		throw std::runtime_error("Поток ввода в нехорошем состоянии!\n");
 	
 	for (char ch = 0; is.get(ch); ++lines)
 	{
@@ -138,7 +140,7 @@ void read_map(std::istream& is, std::vector<Cell>& data, int& w, int& h)
 			first_line = false;
 		}
 		else if (fields_in_line != line.size())
-			throw std::runtime_error("Ðàçíîå êîëè÷åñòâî ïîëåé â ñòðîêàõ â îïèñàíèè êàðòû!\n");
+			throw std::runtime_error("Разное количество полей в строках в описании карты!\n");
 		data.insert(data.end(), line.begin(), line.end());
 	}
 	w = fields_in_line;
@@ -161,11 +163,11 @@ void Map::init()
 {
 	start_ = get_once_field_index(arr, Cell::start);
 	if (start_ == -1)
-		throw std::runtime_error("Íà êàðòå íå óêàçàí ñòàðò, èëè èõ óêàçàíî áîëüøå îäíîãî!\n");
+		throw std::runtime_error("На карте не указан старт, или их указано больше одного!\n");
 
 	goal_ = get_once_field_index(arr, Cell::end);
 	if (goal_ == -1)
-		throw std::runtime_error("Íà êàðòå íå óêàçàí ôèíèø, èëè èõ óêàçàíî áîëüøå îäíîãî!\n");
+		throw std::runtime_error("На карте не указан финиш, или их указано больше одного!\n");
 
 	init_index_dirs(index_DIRS, size.w);
 }
@@ -183,7 +185,7 @@ Map::Map(std::vector<Cell>& cells, int w)
 	arr = cells;
 	int length = static_cast<int>(cells.size());
 	if (length % w != 0)
-		throw std::runtime_error("Ðàçìåð êàðòû óêàçàí íåâåðíî!\n");
+		throw std::runtime_error("Размер карты указан неверно!\n");
 	size.w = w;
 	size.h = length / w;
 	Map::init();
