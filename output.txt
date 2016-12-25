@@ -1,5 +1,5 @@
-Файл: D:\study\Алгоритмы и структуры данных\Underground\4.txt
-Карта:
+Р¤Р°Р№Р»: C:\Users\РђРЅР¶РµР»РёРєР°\Desktop\Underground\4.txt
+РљР°СЂС‚Р°:
 000000000000000
 0            g0
 0            +0
@@ -15,11 +15,11 @@
 0             0
 0             0
 000000000000000
-Действия:
+Р”РµР№СЃС‚РІРёСЏ:
 R R R R R R R U U U U 
 
-Файл: D:\study\Алгоритмы и структуры данных\Underground\5.txt
-Карта:
+Р¤Р°Р№Р»: C:\Users\РђРЅР¶РµР»РёРєР°\Desktop\Underground\5.txt
+РљР°СЂС‚Р°:
 000000000000000
 0g  0         0
 0+  0         0
@@ -35,11 +35,11 @@ R R R R R R R U U U U
 0  +0+ 0 +00000
 0  +++ 0 ++++s0
 000000000000000
-Действия:
+Р”РµР№СЃС‚РІРёСЏ:
 L L L L U U R U U L L L L L D D D D L L U U U L L U U U U U U U U U 
 
-Файл: D:\study\Алгоритмы и структуры данных\Underground\1.txt
-Карта:
+Р¤Р°Р№Р»: C:\Users\РђРЅР¶РµР»РёРєР°\Desktop\Underground\1.txt
+РљР°СЂС‚Р°:
 0000000
 0   0 0
 0   0 0
@@ -51,11 +51,11 @@ L L L L U U R U U L L L L L D D D D L L U U U L L U U U U U U U U U
 0  ++s0
 0   0 0
 0000000
-Действия:
+Р”РµР№СЃС‚РІРёСЏ:
 L L U L U U U 
 
-Файл: D:\study\Алгоритмы и структуры данных\Underground\2.txt
-Карта:
+Р¤Р°Р№Р»: C:\Users\РђРЅР¶РµР»РёРєР°\Desktop\Underground\2.txt
+РљР°СЂС‚Р°:
 00000000000000000000000000000000000
 0         0             0         0
 0         0 000         0         0
@@ -101,11 +101,11 @@ L L U L U U U
 00000 0000000 00000000000 0 000 0+0
 00000                     0      g0
 00000000000000000000000000000000000
-Действия:
+Р”РµР№СЃС‚РІРёСЏ:
 R R R R D R R D R D D D D R R R R R R D D D D D D D D D D R R R R R R D D D D D D D D D D D D R R D D D D D D D D D D 
 
-Файл: D:\study\Алгоритмы и структуры данных\Underground\3.txt
-Карта:
+Р¤Р°Р№Р»: C:\Users\РђРЅР¶РµР»РёРєР°\Desktop\Underground\3.txt
+РљР°СЂС‚Р°:
        
     0  
     0  
@@ -117,6 +117,6 @@ R R R R D R R D R D D D D R R R R R R D D D D D D D D D D R R R R R R D D D D D 
    ++s 
     0  
        
-Действия:
+Р”РµР№СЃС‚РІРёСЏ:
 L L U L U U U 
 
